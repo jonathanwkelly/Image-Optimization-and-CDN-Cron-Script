@@ -1,0 +1,14 @@
+The original usage of this script was to take images that were uploaded on posterwhore.com that were originally somewhere in the 30k - 90k range, and get them an optimal size, since the site loaded multiple images per page. Additionally, I wanted to use the Rackspace Cloud Files solution to act as a CDN. 
+
+This comes packaged with the PHP API code from the Rackspace website. It contains all the code you need to get the images onto the Cloud Files CDN.
+
+HOW TO USE
+1) Get a Rackspace Cloud Files account & API key ( http://www.rackspacecloud.com ) ( Your Account -> API Access )
+2) Make a container in your Cloud Files account ( Hosting -> Cloud Files -> +Add Container )
+2) Upload the /optimize directory to your server
+3) Set your options in the $arrConfig array inside optimize.php
+4) Ensure your images and optimized dirs have proper permissions for your server
+5) Make modifications to the queries if you're querying for images ( see ~lines 137,157 )
+
+IMPORTANT
+It should be noted that this script was used in conjunction with a database of images. I used a flag for each image record, that denoted if the image had been placed on the CDN yet. The filename on the CDN is whatever you want it to be. I just used this flag to tell which hostname to serve the image from in my front-end markup.
